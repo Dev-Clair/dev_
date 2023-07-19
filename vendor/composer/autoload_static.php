@@ -56,7 +56,8 @@ class ComposerStaticInit10d6a3250ce0f73eeaf2c7bc52e45922
         ),
         'Dotenv\\' => 
         array (
-            0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
+            0 => 'C:\\xampp\\htdocs\\universal_mysqli_database_controller\\vendor',
+            1 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
         ),
     );
 

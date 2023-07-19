@@ -4,7 +4,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Dotenv\\": "htdocs/universal_mysqli_database_controller"
+      "Dotenv\\": "vendor/"
     }
   }
 }
