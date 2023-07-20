@@ -2,10 +2,6 @@
 
 class DbConn
 {
-    // private string $serverName;
-    // private string $userName;
-    // private string $password;
-    // private ?string $database;
     private ?mysqli $conn;
 
     /**
@@ -18,10 +14,6 @@ class DbConn
      */
     public function __construct(private string $serverName, private string $userName, private string $password, private ?string $database = null)
     {
-        // $this->serverName = $serverName;
-        // $this->userName = $userName;
-        // $this->password = $password;
-        // $this->database = $database;
         $this->connect();
     }
 
