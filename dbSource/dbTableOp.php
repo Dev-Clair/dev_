@@ -5,10 +5,8 @@
  * Requires Resource
  * to Execute Various Table Read and Write Operations.
  */
-class DbTableOps
+class DbTableOp
 {
-    use DbConn;
-
     private ?mysqli $conn;
 
     /**
@@ -17,7 +15,7 @@ class DbTableOps
      */
     public function __construct(?mysqli $conn)
     {
-        $this->conn = $this->dbConn($_ENV["DATABASE_HOSTNAME"], $_ENV["DATABASE_USERNAME"], $_ENV["DATABASE_PASSWORD"]);
+        $this->conn = $conn;
     }
 
     private function getBindParamTypes(array $values): string

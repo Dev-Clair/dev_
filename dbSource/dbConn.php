@@ -1,6 +1,6 @@
 <?php
 
-class DbConnection
+class DbConn
 {
     private string $serverName;
     private string $userName;

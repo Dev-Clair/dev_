@@ -7,8 +7,6 @@
  */
 class DbTable
 {
-    use DbConn;
-
     private ?mysqli $conn;
 
     /**
@@ -17,7 +15,7 @@ class DbTable
      */
     public function __construct(?mysqli $conn)
     {
-        $this->conn = $this->dbConn($_ENV["DATABASE_HOSTNAME"], $_ENV["DATABASE_USERNAME"], $_ENV["DATABASE_PASSWORD"]);
+        $this->conn = $conn;
     }
 
     /**
@@ -31,7 +29,7 @@ class DbTable
             throw new Exception("No database connection available.");
         }
 
-        $sql_query = "CREATE TABLE IF NOT EXISTS $tableName ($fieldNames)";
+        $sql_query = "CREATE TABLE $tableName ($fieldNames)";
         $result = $this->conn->query($sql_query);
 
         if ($result !== true) {
