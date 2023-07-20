@@ -1,5 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
+namespace dbSource\Connection;
+
+use mysqli;
+
 class DbConn
 {
     private ?mysqli $conn;

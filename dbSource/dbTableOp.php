@@ -1,10 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
+use mysqli;
+
 /*
  * Table Read and Write Class.
  * Requires Resource
  * to Execute Various Table Read and Write Operations.
  */
+
 class DbTableOp
 {
     /**
