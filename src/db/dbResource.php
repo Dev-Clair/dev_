@@ -6,11 +6,8 @@ use dbSource\Connection as Connection;
 
 use Dotenv\Dotenv;
 
-// require resource: Connection Object
+// require
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'dbSource/dbConn.php';
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'dbSource/dbTable.php';
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'dbSource/dbTableOp.php';
 
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();

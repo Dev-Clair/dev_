@@ -1,6 +1,6 @@
 <?php
 // require resource: Connection Object
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'dbConnection.php';
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
 /** *******************************************Create Tables***************************************** */
 /** ******* Create Table*******/
@@ -26,14 +26,14 @@ $newRecord = [];
 
 $tableName = "";
 $databaseName = "";
-// $conn = tableOpConnection($databaseName);
-// $result = $conn->createRecords("`$tableName`", $newRecord);
-// echo "Creating new record in $tableName: ";
-// if ($result) {
-//     echo "Success\n";
-// } else {
-//     echo "Failure\n";
-// }
+$conn = tableOpConnection($databaseName);
+$result = $conn->createRecords("`$tableName`", $newRecord);
+echo "Creating new record in $tableName: ";
+if ($result) {
+    echo "Success\n";
+} else {
+    echo "Failure\n";
+}
 
 /** Update Table Record */
 $record = [];
