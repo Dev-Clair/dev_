@@ -48,6 +48,6 @@ function tableOpConnection(string $databaseName): DbTableOp
 /** ******************************************* Create or Drop Database ***************************************** */
 $databaseName = ["staff", "admin"];
 foreach ($databaseName as $database) {
-    print_r(dbConnection($database));
+    // print_r(dbConnection($database));
     echo "\n";
 }

@@ -3,24 +3,53 @@
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'dbConnection.php';
 
 /** *******************************************Create Tables***************************************** */
-/** ******* Database Table*******/
-
-$tableName = "productionemployee";
-$fieldNames = "`empID` VARCHAR(10) PRIMARY KEY NOT NULL,
-               `name` VARCHAR(100) NOT NULL,
-               `department` VARCHAR(100) UNIQUE NOT NULL,
-               `level` INT(2) NOT NULL,
+/** ******* Create Table*******/
+$tableName = "";
+$fieldNames = "`` VARCHAR() PRIMARY KEY NOT NULL,
+               `` VARCHAR() NOT NULL,
+               `` VARCHAR(100) UNIQUE NOT NULL,
+               `` INT() NOT NULL,
                `datecreated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP";
 
-$databaseName = "employee";
-$conn = tableConnection($databaseName);
-$result = $conn->createTable("`$tableName`", $fieldNames);
-echo "Creating table $tableName: ";
-if ($result) {
-    echo "Success\n";
-} else {
-    echo "Failure\n";
-}
+$databaseName = "";
+// $conn = tableConnection($databaseName);
+// $result = $conn->createTable("`$tableName`", $fieldNames);
+// echo "Creating table $tableName: ";
+// if ($result) {
+//     echo "Success\n";
+// } else {
+//     echo "Failure\n";
+// }
+
+/** Add Record to Table */
+$newRecord = [];
+
+$tableName = "";
+$databaseName = "";
+// $conn = tableOpConnection($databaseName);
+// $result = $conn->createRecords("`$tableName`", $newRecord);
+// echo "Creating new record in $tableName: ";
+// if ($result) {
+//     echo "Success\n";
+// } else {
+//     echo "Failure\n";
+// }
+
+/** Update Table Record */
+$record = [];
+$fieldName = "";
+$fieldValue = "";
+
+$tableName = "";
+$databaseName = "";
+// $conn = tableOpConnection($databaseName);
+// $result = $conn->updateRecord("`$tableName`", $record, $fieldName, $fieldValue);
+// echo "Updating record in $tableName: ";
+// if ($result) {
+//     echo "Success\n";
+// } else {
+//     echo "Failure\n";
+// }
 
 /** *******************************************Alter Tables***************************************** */
 $databaseName = "";
@@ -35,7 +64,6 @@ $databaseName = "";
 $tableName = "";
 // $conn = tableConnection($databaseName);
 // $result = $conn->truncateTable("`$tableName`");
-
 
 /** *******************************************Drop Tables***************************************** */
 $databaseName = "";

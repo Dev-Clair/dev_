@@ -35,7 +35,7 @@ class DbTableOp
         return $types;
     }
 
-    private function getColumnNames(string $tableName): array
+    public function getColumnNames(string $tableName): array
     {
         if (!$this->conn instanceof mysqli) {
             throw new Exception("No database connection available.");
