@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
+namespace db\Connection;
+
 use mysqli;
+use Exception;
 
 /**
  * Table Creation Class.

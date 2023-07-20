@@ -4,8 +4,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Dotenv\\": "vendor/",
-      "dbSource\\Connection\\": "db/"
+      "db\\Connection\\": "src/db"
     }
   }
 }
