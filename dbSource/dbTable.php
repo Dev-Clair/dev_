@@ -7,15 +7,15 @@
  */
 class DbTable
 {
-    private ?mysqli $conn;
+    // private ?mysqli $conn;
 
     /**
      * Constructor,
      * sources resource: connection object
      */
-    public function __construct(?mysqli $conn)
+    public function __construct(private ?mysqli $conn)
     {
-        $this->conn = $conn;
+        // $this->conn = $conn;
     }
 
     /**

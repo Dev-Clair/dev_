@@ -5,7 +5,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'dbConnection.php';
 /** *******************************************Create Tables***************************************** */
 /** ******* Database Table*******/
 
-$tableName = "productionemployee";
+$tableName = "financeemployee";
 $fieldNames = "`empID` VARCHAR(10) PRIMARY KEY NOT NULL,
                `name` VARCHAR(100) NOT NULL,
                `department` VARCHAR(100) UNIQUE NOT NULL,
