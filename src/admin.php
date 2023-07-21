@@ -10,7 +10,7 @@ require __DIR__ . '/../src/db/dbResource.php';
 $tableName = "";
 $fieldNames = "`` VARCHAR() PRIMARY KEY NOT NULL,
                `` VARCHAR() NOT NULL,
-               `` VARCHAR() UNIQUE NOT NULL,
+               `` VARCHAR() NOT NULL,
                `` INT() NOT NULL,
                `datecreated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP";
 
@@ -25,7 +25,7 @@ $databaseName = "";
 // }
 
 /** Add Record to Table */
-$newRecord = [];
+$newRecord = []; // Record must be passed as an associative array
 $tableName = "";
 $databaseName = "";
 // $conn = tableOpConnection($databaseName);
@@ -37,8 +37,60 @@ $databaseName = "";
 //     echo "Failure\n";
 // }
 
+/** Validate Record */
+$fieldName = "";
+$fieldValue = "";
+
+$tableName = "";
+$databaseName = "";
+// $conn = tableOpConnection($databaseName);
+// $result = $conn->validateRecord("`$tableName`", $fieldName, $fieldValue);
+// echo "Validating record in $tableName returns: $result" . PHP_EOL;
+
+/** Retrieve All Table Records */
+$tableName = "";
+$databaseName = "";
+// $conn = tableOpConnection($databaseName);
+// $result = $conn->retrieveAllRecords("`$tableName`");
+// echo "Retrieving all records in $tableName: " . PHP_EOL;
+// var_dump($result);
+
+/** Retrieve Single Value from Table Records */
+$fieldName = "";
+$fieldValue = "";
+
+$tableName = "";
+$databaseName = "";
+// $conn = tableOpConnection($databaseName);
+// $result = $conn->retrieveSingleValue("`$tableName`", $fieldName, $fieldValue);
+// echo "Retrieving single value in $tableName: " . PHP_EOL;
+// var_dump($result);
+
+/** Retrieve Multiple FieldValues from Table Record */
+$fieldName = "";
+$compareFieldName = "";
+$compareFieldValue = "";
+
+$tableName = "";
+$databaseName = "";
+// $conn = tableOpConnection($databaseName);
+// $result = $conn->retrieveMultipleValues("`$tableName`", $fieldName, $compareFieldName, $compareFieldValue);
+// echo "Retrieving multple values from $tableName: " . PHP_EOL;
+// var_dump($result);
+
+/** Retrieve Single Table Record */
+$fieldName = "";
+$fieldValue = "";
+
+$tableName = "";
+$databaseName = "";
+// $conn = tableOpConnection($databaseName);
+// $result = $conn->retrieveSingleRecord("`$tableName`", $fieldName, $fieldValue);
+// echo "Retrieving single record in $tableName: " . PHP_EOL;
+// var_dump($result);
+
 /** Update Table Record */
-$record = [];
+$record = []; // Record must be passed as an associative array
 $fieldName = "";
 $fieldValue = "";
 
@@ -47,6 +99,21 @@ $databaseName = "";
 // $conn = tableOpConnection($databaseName);
 // $result = $conn->updateRecord("`$tableName`", $record, $fieldName, $fieldValue);
 // echo "Updating record in $tableName: ";
+// if ($result) {
+//     echo "Success\n";
+// } else {
+//     echo "Failure\n";
+// }
+
+/** Delete Table Record */
+$fieldName = "";
+$fieldValue = "";
+
+$tableName = "";
+$databaseName = "";
+// $conn = tableOpConnection($databaseName);
+// $result = $conn->deleteRecord("`$tableName`", $fieldName, $fieldValue);
+// echo "Deleting record in $tableName: ";
 // if ($result) {
 //     echo "Success\n";
 // } else {

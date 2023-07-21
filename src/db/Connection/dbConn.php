@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace db\Connection;
 
+use PDO;
+use PDOException;
+
 class DbConn
 {
-    private ?\mysqli $conn;
+    private ?PDO $conn;
 
     /**
      * Constructor, initializes the connection settings.
@@ -26,18 +29,21 @@ class DbConn
      */
     private function connect(): void
     {
-        $this->conn = new \mysqli($this->serverName, $this->userName, $this->password, $this->database);
+        $dsn = "mysql:host={$this->serverName};dbname={$this->database};charset=utf8mb4";
 
-        if ($this->conn->connect_error) {
-            throw new \RuntimeException("Error! Connection Failed: " . $this->conn->connect_error);
+        try {
+            $this->conn = new PDO($dsn, $this->userName, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            throw new \RuntimeException("Error! Connection Failed: " . $e->getMessage());
         }
     }
 
     /**
      * Retrieves resource: database connection object.
-     * @return \mysqli|null Database connection object.
+     * @return PDO|null Database connection object.
      */
-    public function getConnection(): ?\mysqli
+    public function getConnection(): ?PDO
     {
         return $this->conn;
     }
@@ -47,8 +53,6 @@ class DbConn
      */
     public function closeConnection(): void
     {
-        if ($this->conn !== null) {
-            $this->conn->close();
-        }
+        $this->conn = null;
     }
 }
