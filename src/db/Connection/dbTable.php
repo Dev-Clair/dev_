@@ -104,30 +104,4 @@ class DbTable
         // $this->conn->close(); // Close Connection Object
         return $result === true;
     }
-
-    /**
-     * Retrieves the names of tables in a database as an array containing values only.
-     * @param string $databaseName Name of the database
-     * @return array Array containing the names of tables
-     */
-    public function retrieveTableNames(string $databaseName): array
-    {
-        if (!$this->conn instanceof \mysqli) {
-            throw new \RuntimeException("No database connection available.");
-        }
-
-        $sql_query = "SHOW TABLES FROM $databaseName";
-        $result = $this->conn->query($sql_query);
-
-        if ($result) {
-            $tableNames = [];
-            while ($row = $result->fetch_row()) {
-                $tableNames[] = $row[0];
-            }
-            $result->close(); // Close Result Object
-            return $tableNames;
-        }
-        // $this->conn->close(); // Close connection
-        return [];
-    }
 }

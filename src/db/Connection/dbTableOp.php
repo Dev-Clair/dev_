@@ -37,31 +37,6 @@ class DbTableOp
         return $types;
     }
 
-    public function getColumnNames(string $tableName): array
-    {
-        if (!$this->conn instanceof \mysqli) {
-            throw new \RuntimeException("No database connection available.");
-        }
-
-        $columnNames = [];
-
-        $sql_query = "SELECT * FROM $tableName LIMIT 1";
-
-        $result = $this->conn->query($sql_query);
-
-        if ($result) {
-            $fields = $result->fetch_fields();
-            foreach ($fields as $field) {
-                $columnNames[] = $field->name;
-            }
-        } else {
-            return [];
-        }
-
-        // $this->conn->close(); // Close Connection Object
-        return $columnNames;
-    }
-
     /**
      * @param string $tableName = "Name of table created with the createTable function"
      * @param array $sanitizedData = ["fieldName" => $fieldValue, "fieldName" => $fieldValue, "fieldName" => $fieldValue, ...]
