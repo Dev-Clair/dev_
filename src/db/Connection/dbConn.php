@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace db\Connection;
 
-use mysqli;
-
 class DbConn
 {
-    private ?mysqli $conn;
+    private ?\mysqli $conn;
 
     /**
      * Constructor, initializes the connection settings.
@@ -28,18 +26,18 @@ class DbConn
      */
     private function connect(): void
     {
-        $this->conn = new mysqli($this->serverName, $this->userName, $this->password, $this->database);
+        $this->conn = new \mysqli($this->serverName, $this->userName, $this->password, $this->database);
 
         if ($this->conn->connect_error) {
-            die("Error! Connection Failed: " . $this->conn->connect_error);
+            throw new \RuntimeException("Error! Connection Failed: " . $this->conn->connect_error);
         }
     }
 
     /**
      * Retrieves resource: database connection object.
-     * @return mysqli|null Database connection object.
+     * @return \mysqli|null Database connection object.
      */
-    public function getConnection(): ?mysqli
+    public function getConnection(): ?\mysqli
     {
         return $this->conn;
     }

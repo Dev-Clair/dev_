@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace db\Connection;
 
-use mysqli;
-use Exception;
-
 /*
  * Table Read and Write Class.
  * Requires Resource
@@ -19,7 +16,7 @@ class DbTableOp
      * Constructor,
      * sources resource: connection object
      */
-    public function __construct(private ?mysqli $conn)
+    public function __construct(private ?\mysqli $conn)
     {
     }
 
@@ -42,8 +39,8 @@ class DbTableOp
 
     public function getColumnNames(string $tableName): array
     {
-        if (!$this->conn instanceof mysqli) {
-            throw new Exception("No database connection available.");
+        if (!$this->conn instanceof \mysqli) {
+            throw new \RuntimeException("No database connection available.");
         }
 
         $columnNames = [];
@@ -71,8 +68,8 @@ class DbTableOp
      */
     public function createRecords(string $tableName, array $sanitizedData): bool
     {
-        if (!$this->conn instanceof mysqli) {
-            throw new Exception("No database connection available.");
+        if (!$this->conn instanceof \mysqli) {
+            throw new \RuntimeException("No database connection available.");
         }
 
         $columns = implode(",", array_map(function ($column) {
@@ -86,14 +83,14 @@ class DbTableOp
         $stmt = $this->conn->prepare($sql_query);
 
         if (!$stmt) {
-            throw new Exception("Error in prepared statement: " . $this->conn->error);
+            throw new \RuntimeException("Error in prepared statement: " . $this->conn->error);
         }
 
         $stmt->bind_param($types, ...array_values($sanitizedData));
         $status = $stmt->execute();
 
         if ($status === false) {
-            throw new Exception("Error executing statement: " . $stmt->error);
+            throw new \RuntimeException("Error executing statement: " . $stmt->error);
         }
 
         $stmt->close(); // Close statement
@@ -104,8 +101,8 @@ class DbTableOp
 
     public function validateRecord(string $tableName, $fieldName, $fieldValue): bool
     {
-        if (!$this->conn instanceof mysqli) {
-            throw new Exception("No database connection available.");
+        if (!$this->conn instanceof \mysqli) {
+            throw new \RuntimeException("No database connection available.");
         }
 
         $paramTypes = $this->getBindParamTypes([$fieldValue]);
@@ -114,7 +111,7 @@ class DbTableOp
         $stmt = $this->conn->prepare($sql_query);
 
         if (!$stmt) {
-            throw new Exception("Error in prepared statement: " . $this->conn->error);
+            throw new \RuntimeException("Error in prepared statement: " . $this->conn->error);
         }
 
         $stmt->bind_param($paramTypes, $fieldValue);
@@ -130,8 +127,8 @@ class DbTableOp
 
     public function retrieveAllRecords(string $tableName): array
     {
-        if (!$this->conn instanceof mysqli) {
-            throw new Exception("No database connection available.");
+        if (!$this->conn instanceof \mysqli) {
+            throw new \RuntimeException("No database connection available.");
         }
 
         $sql_query = "SELECT * FROM $tableName";
@@ -154,8 +151,8 @@ class DbTableOp
      */
     public function retrieveSingleValue(string $tableName, $fieldName, $fieldValue): int|string|bool|array|null
     {
-        if (!$this->conn instanceof mysqli) {
-            throw new Exception("No database connection available.");
+        if (!$this->conn instanceof \mysqli) {
+            throw new \RuntimeException("No database connection available.");
         }
 
         $sql_query = "SELECT $fieldName FROM $tableName WHERE $fieldName = ?";
@@ -180,15 +177,15 @@ class DbTableOp
      */
     public function retrieveMultipleValues(string $tableName, string $fieldName, string $comparefieldName, $comparefieldValue): array
     {
-        if (!$this->conn instanceof mysqli) {
-            throw new Exception("No database connection available.");
+        if (!$this->conn instanceof \mysqli) {
+            throw new \RuntimeException("No database connection available.");
         }
 
         $sql_query = "SELECT $fieldName FROM $tableName WHERE $comparefieldName = ?";
         $stmt = $this->conn->prepare($sql_query);
 
         if ($stmt === false) {
-            throw new Exception("Error in preparing statement: " . $this->conn->error);
+            throw new \RuntimeException("Error in preparing statement: " . $this->conn->error);
         }
 
         $stmt->bind_param($this->getBindParamTypes([$comparefieldValue]), $comparefieldValue);
@@ -214,8 +211,8 @@ class DbTableOp
      */
     public function retrieveSingleRecord(string $tableName, string $fieldName, $fieldValue): array
     {
-        if (!$this->conn instanceof mysqli) {
-            throw new Exception("No database connection available.");
+        if (!$this->conn instanceof \mysqli) {
+            throw new \RuntimeException("No database connection available.");
         }
 
         $sql_query = "SELECT * FROM $tableName WHERE $fieldName = ?";
@@ -243,8 +240,8 @@ class DbTableOp
      */
     public function updateRecord(string $tableName, array $sanitizedData, string $fieldName, $fieldValue): bool
     {
-        if (!$this->conn instanceof mysqli) {
-            throw new Exception("No database connection available.");
+        if (!$this->conn instanceof \mysqli) {
+            throw new \RuntimeException("No database connection available.");
         }
 
         $updateFields = "";
@@ -274,8 +271,8 @@ class DbTableOp
 
     public function deleteRecord(string $tableName, string $fieldName, string $fieldValue): bool
     {
-        if (!$this->conn instanceof mysqli) {
-            throw new Exception("No database connection available.");
+        if (!$this->conn instanceof \mysqli) {
+            throw new \RuntimeException("No database connection available.");
         }
 
         $paramTypes = $this->getBindParamTypes([$fieldValue]);
@@ -292,8 +289,8 @@ class DbTableOp
 
     public function retrieveTableReport(string $tableName, array $tableFields, array $joins, array $joinConditions): array
     {
-        if (!$this->conn instanceof mysqli) {
-            throw new Exception("No database connection available.");
+        if (!$this->conn instanceof \mysqli) {
+            throw new \RuntimeException("No database connection available.");
         }
 
         // Construct table fields

@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace db\Connection;
 
-use mysqli;
-use Exception;
-
 /**
  * Table Creation Class.
  * Requires Resource
@@ -18,7 +15,7 @@ class DbTable
      * Constructor,
      * sources resource: connection object
      */
-    public function __construct(private ?mysqli $conn)
+    public function __construct(private ?\mysqli $conn)
     {
     }
 
@@ -29,15 +26,15 @@ class DbTable
      */
     public function createTable(string $tableName, string $fieldNames): bool
     {
-        if (!$this->conn instanceof mysqli) {
-            throw new Exception("No database connection available.");
+        if (!$this->conn instanceof \mysqli) {
+            throw new \RuntimeException("No database connection available.");
         }
 
         $sql_query = "CREATE TABLE $tableName ($fieldNames)";
         $result = $this->conn->query($sql_query);
 
         if ($result !== true) {
-            throw new Exception("Error! Table Creation Failed: " . $this->conn->error);
+            throw new \RuntimeException("Error! Table Creation Failed: " . $this->conn->error);
         }
 
         // $this->conn->close(); // Close Connection Object
@@ -51,15 +48,15 @@ class DbTable
      */
     public function alterTable(string $tableName, string $alterStatement): bool
     {
-        if (!$this->conn instanceof mysqli) {
-            throw new Exception("No database connection available.");
+        if (!$this->conn instanceof \mysqli) {
+            throw new \RuntimeException("No database connection available.");
         }
 
         $sql_query = "ALTER TABLE $tableName $alterStatement";
         $result = $this->conn->query($sql_query);
 
         if ($result !== true) {
-            throw new Exception("Error! Process Failed: " . $this->conn->error);
+            throw new \RuntimeException("Error! Process Failed: " . $this->conn->error);
         }
 
         // $this->conn->close(); // Close Connection Object
@@ -72,15 +69,15 @@ class DbTable
      */
     public function truncateTable(string $tableName): bool
     {
-        if (!$this->conn instanceof mysqli) {
-            throw new Exception("No database connection available.");
+        if (!$this->conn instanceof \mysqli) {
+            throw new \RuntimeException("No database connection available.");
         }
 
         $sql_query = "TRUNCATE TABLE $tableName";
         $result = $this->conn->query($sql_query);
 
         if ($result !== true) {
-            throw new Exception("Error! Process Failed: " . $this->conn->error);
+            throw new \RuntimeException("Error! Process Failed: " . $this->conn->error);
         }
 
         // $this->conn->close(); // Close Connection Object
@@ -93,15 +90,15 @@ class DbTable
      */
     public function dropTable(string $tableName): bool
     {
-        if (!$this->conn instanceof mysqli) {
-            throw new Exception("No database connection available.");
+        if (!$this->conn instanceof \mysqli) {
+            throw new \RuntimeException("No database connection available.");
         }
 
         $sql_query = "DROP TABLE $tableName";
         $result = $this->conn->query($sql_query);
 
         if ($result !== true) {
-            throw new Exception("Error! Process Failed: " . $this->conn->error);
+            throw new \RuntimeException("Error! Process Failed: " . $this->conn->error);
         }
 
         // $this->conn->close(); // Close Connection Object
@@ -115,8 +112,8 @@ class DbTable
      */
     public function retrieveTableNames(string $databaseName): array
     {
-        if (!$this->conn instanceof mysqli) {
-            throw new Exception("No database connection available.");
+        if (!$this->conn instanceof \mysqli) {
+            throw new \RuntimeException("No database connection available.");
         }
 
         $sql_query = "SHOW TABLES FROM $databaseName";

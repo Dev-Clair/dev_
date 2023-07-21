@@ -2,16 +2,12 @@
 
 declare(strict_types=1);
 
-namespace db\Connection;
-
 use Dotenv\Dotenv;
 use db\Connection\DbConn;
 use db\Connection\DbTable;
 use db\Connection\DbTableOp;
 
-require_once __DIR__ . '/../../vendor/autoload.php';
-
-$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../..');
 $dotenv->load();
 
 /******* Create/Drop/Truncate/Alter Table ******/

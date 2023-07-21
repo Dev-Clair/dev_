@@ -1,10 +1,11 @@
 {
-  "require": {
-    "vlucas/phpdotenv": "^5.5"
-  },
   "autoload": {
     "psr-4": {
-      "db\\Connection\\": "src/db"
+      "db\\Connection\\": "src/db/Connection",
+      "app\\": "src/app"
     }
+  },
+  "require": {
+    "vlucas/phpdotenv": "^5.5"
   }
 }

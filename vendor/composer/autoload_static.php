@@ -17,6 +17,10 @@ class ComposerStaticInitc2c340d54c0b0234484a348183a4f8f8
         array (
             'db\\Connection\\' => 14,
         ),
+        'a' => 
+        array (
+            'app\\' => 4,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Php80\\' => 23,
@@ -40,7 +44,11 @@ class ComposerStaticInitc2c340d54c0b0234484a348183a4f8f8
     public static $prefixDirsPsr4 = array (
         'db\\Connection\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/db',
+            0 => __DIR__ . '/../..' . '/src/db/Connection',
+        ),
+        'app\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/app',
         ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
