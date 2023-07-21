@@ -1,0 +1,4 @@
+DSN_DRIVER = mysql
+DATABASE_HOSTNAME = Enter Hostname
+DATABASE_USERNAME = Enter Username
+DATABASE_PASSWORD = Enter Password
