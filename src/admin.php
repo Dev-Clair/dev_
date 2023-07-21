@@ -1,13 +1,16 @@
 <?php
-// require resource: Connection Object
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
+
+declare(strict_types=1);
+
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../src/db/dbResource.php';
 
 /** *******************************************Create Tables***************************************** */
 /** ******* Create Table*******/
 $tableName = "";
 $fieldNames = "`` VARCHAR() PRIMARY KEY NOT NULL,
                `` VARCHAR() NOT NULL,
-               `` VARCHAR(100) UNIQUE NOT NULL,
+               `` VARCHAR() UNIQUE NOT NULL,
                `` INT() NOT NULL,
                `datecreated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP";
 
@@ -23,17 +26,16 @@ $databaseName = "";
 
 /** Add Record to Table */
 $newRecord = [];
-
 $tableName = "";
 $databaseName = "";
-$conn = tableOpConnection($databaseName);
-$result = $conn->createRecords("`$tableName`", $newRecord);
-echo "Creating new record in $tableName: ";
-if ($result) {
-    echo "Success\n";
-} else {
-    echo "Failure\n";
-}
+// $conn = tableOpConnection($databaseName);
+// $result = $conn->createRecords("`$tableName`", $newRecord);
+// echo "Creating new record in $tableName: ";
+// if ($result) {
+//     echo "Success\n";
+// } else {
+//     echo "Failure\n";
+// }
 
 /** Update Table Record */
 $record = [];
