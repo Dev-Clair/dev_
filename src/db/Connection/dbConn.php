@@ -14,12 +14,13 @@ class DbConn
     /**
      * Constructor, initializes the connection settings.
      *
+     * @param string $driver (e.g., "mysql", "pgsql", "sqlite", etc.).
      * @param string $serverName Server name (localhost) or IP address(remote host).
      * @param string $userName   Database username.
      * @param string $password   Database password.
      * @param string|null $database   Database name (optional).
      */
-    public function __construct(private string $serverName, private string $userName, private string $password, private ?string $database = null)
+    public function __construct(private string $driver, private string $serverName, private string $userName, private string $password, private ?string $database = null)
     {
         $this->connect();
     }
@@ -29,7 +30,7 @@ class DbConn
      */
     private function connect(): void
     {
-        $dsn = "mysql:host={$this->serverName};dbname={$this->database};charset=utf8mb4";
+        $dsn = "{$this->driver}:host={$this->serverName};dbname={$this->database};charset=utf8mb4";
 
         try {
             $this->conn = new PDO($dsn, $this->userName, $this->password);
