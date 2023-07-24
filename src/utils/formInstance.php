@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * This file is not for use.
+ * It is meant for copying and filling in the form elements where needed
+ * more like a form subtrait
+ */
 require __DIR__ . '/form.php';
 
 // Instantiate Form and Create Form Members
