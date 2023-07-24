@@ -33,7 +33,7 @@ class DbConn
         $dsn = "{$this->driver}:host={$this->serverName};dbname={$this->database};charset=utf8mb4";
 
         try {
-            $this->conn = new PDO($dsn, $this->userName, $this->password);
+            $this->conn = new PDO(dsn: $dsn, username: $this->userName, password: $this->password);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             throw new \RuntimeException("Error! Connection Failed: " . $e->getMessage());

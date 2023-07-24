@@ -40,7 +40,7 @@ class DbTable
     {
         $sql = "CREATE TABLE $tableName ($fieldNames)";
         try {
-            $this->executeQuery($sql);
+            $this->executeQuery(sql: $sql);
             return true;
         } catch (PDOException $e) {
             throw new \RuntimeException("Error! Table Creation Failed: " . $e->getMessage());
@@ -56,7 +56,7 @@ class DbTable
     {
         $sql = "ALTER TABLE $tableName $alterStatement";
         try {
-            $this->executeQuery($sql);
+            $this->executeQuery(sql: $sql);
             return true;
         } catch (PDOException $e) {
             throw new \RuntimeException("Error! Process Failed: " . $e->getMessage());
@@ -72,7 +72,7 @@ class DbTable
     {
         $sql = "TRUNCATE TABLE $tableName";
         try {
-            $this->executeQuery($sql);
+            $this->executeQuery(sql: $sql);
             return true;
         } catch (PDOException $e) {
             throw new \RuntimeException("Error! Process Failed: " . $e->getMessage());
@@ -87,7 +87,7 @@ class DbTable
     {
         $sql = "DROP TABLE $tableName";
         try {
-            $this->executeQuery($sql);
+            $this->executeQuery(sql: $sql);
             return true;
         } catch (PDOException $e) {
             throw new \RuntimeException("Error! Process Failed: " . $e->getMessage());

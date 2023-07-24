@@ -26,7 +26,7 @@ class DbTableOp extends DbTable
 
         try {
             $params = array_values($sanitizedData);
-            $this->executeQuery($sql, $params);
+            $this->executeQuery(sql: $sql, params: $params);
             return true;
         } catch (PDOException $e) {
             throw new \RuntimeException("Error executing statement: " . $e->getMessage());
@@ -38,7 +38,7 @@ class DbTableOp extends DbTable
         $sql_query = "SELECT * FROM $tableName WHERE $fieldName = ?";
 
         try {
-            $stmt = $this->executeQuery($sql_query, [$fieldValue]);
+            $stmt = $this->executeQuery(sql: $sql_query, params: [$fieldValue]);
             $validFieldValue = $stmt->rowCount() > 0;
             return $validFieldValue;
         } catch (PDOException $e) {
@@ -50,7 +50,7 @@ class DbTableOp extends DbTable
     {
         $sql_query = "SELECT * FROM $tableName";
         try {
-            $stmt = $this->executeQuery($sql_query);
+            $stmt = $this->executeQuery(sql: $sql_query);
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $rows;
         } catch (PDOException $e) {
@@ -63,7 +63,7 @@ class DbTableOp extends DbTable
         $sql_query = "SELECT $fieldName FROM $tableName WHERE $fieldName = ?";
 
         try {
-            $stmt = $this->executeQuery($sql_query, [$fieldValue]);
+            $stmt = $this->executeQuery(sql: $sql_query, params: [$fieldValue]);
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             if ($row) {
                 return $row[$fieldName];
@@ -78,7 +78,7 @@ class DbTableOp extends DbTable
     {
         $sql_query = "SELECT $fieldName FROM $tableName WHERE $compareFieldName = ?";
         try {
-            $stmt = $this->executeQuery($sql_query, [$compareFieldValue]);
+            $stmt = $this->executeQuery(sql: $sql_query, params: [$compareFieldValue]);
             $columnValues = $stmt->fetchAll(PDO::FETCH_COLUMN);
             return $columnValues;
         } catch (PDOException $e) {
@@ -91,7 +91,7 @@ class DbTableOp extends DbTable
         $sql_query = "SELECT * FROM $tableName WHERE $fieldName = ?";
 
         try {
-            $stmt = $this->executeQuery($sql_query, [$fieldValue]);
+            $stmt = $this->executeQuery(sql: $sql_query, params: [$fieldValue]);
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             return $row ?: [];
         } catch (PDOException $e) {
@@ -111,7 +111,7 @@ class DbTableOp extends DbTable
         $params[] = $fieldValue;
 
         try {
-            $this->executeQuery($sql_query, $params);
+            $this->executeQuery(sql: $sql_query, params: $params);
             return true;
         } catch (PDOException $e) {
             throw new \RuntimeException("Error executing statement: " . $e->getMessage());
@@ -123,7 +123,7 @@ class DbTableOp extends DbTable
         $sql_query = "DELETE FROM $tableName WHERE $fieldName = ?";
 
         try {
-            $this->executeQuery($sql_query, [$fieldValue]);
+            $this->executeQuery(sql: $sql_query, params: [$fieldValue]);
             return true;
         } catch (PDOException $e) {
             throw new \RuntimeException("Error executing statement: " . $e->getMessage());
@@ -145,7 +145,7 @@ class DbTableOp extends DbTable
         $sql_query = "SELECT $fieldNames FROM $tableName $joinStatements";
 
         try {
-            $stmt = $this->executeQuery($sql_query);
+            $stmt = $this->executeQuery(sql: $sql_query);
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $rows;
         } catch (PDOException $e) {

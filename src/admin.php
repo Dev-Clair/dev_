@@ -15,8 +15,8 @@ $fieldNames = "`` VARCHAR() PRIMARY KEY NOT NULL,
                `datecreated` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP";
 
 $databaseName = "";
-// $conn = tableConnection($databaseName);
-// $result = $conn->createTable("`$tableName`", $fieldNames);
+// $conn = tableConnection(databaseName: $databaseName);
+// $result = $conn->createTable(tableName: $tableName, fieldNames: $fieldNames);
 // echo "Creating table $tableName: ";
 // if ($result) {
 //     echo "Success\n";
@@ -28,8 +28,8 @@ $databaseName = "";
 $newRecord = []; // Record must be passed as an associative array
 $tableName = "";
 $databaseName = "";
-// $conn = tableOpConnection($databaseName);
-// $result = $conn->createRecords("`$tableName`", $newRecord);
+// $conn = tableOpConnection(databaseName: $databaseName);
+// $result = $conn->createRecords(tableName: $tableName, sanitizedData: $newRecord);
 // echo "Creating new record in $tableName: ";
 // if ($result) {
 //     echo "Success\n";
@@ -43,15 +43,15 @@ $fieldValue = "";
 
 $tableName = "";
 $databaseName = "";
-// $conn = tableOpConnection($databaseName);
-// $result = $conn->validateRecord("`$tableName`", $fieldName, $fieldValue);
+// $conn = tableOpConnection(databaseName: $databaseName);
+// $result = $conn->validateRecord(tableName: $tableName, fieldName: $fieldName, fieldValue: $fieldValue);
 // echo "Validating record in $tableName returns: $result" . PHP_EOL;
 
 /** Retrieve All Table Records */
 $tableName = "";
 $databaseName = "";
-// $conn = tableOpConnection($databaseName);
-// $result = $conn->retrieveAllRecords("`$tableName`");
+// $conn = tableOpConnection(databaseName: $databaseName);
+// $result = $conn->retrieveAllRecords(tableName: $tableName);
 // echo "Retrieving all records in $tableName: " . PHP_EOL;
 // var_dump($result);
 
@@ -61,8 +61,8 @@ $fieldValue = "";
 
 $tableName = "";
 $databaseName = "";
-// $conn = tableOpConnection($databaseName);
-// $result = $conn->retrieveSingleValue("`$tableName`", $fieldName, $fieldValue);
+// $conn = tableOpConnection(databaseName: $databaseName);
+// $result = $conn->retrieveSingleValue(tableName: $tableName, fieldName: $fieldName, fieldValue: $fieldValue);
 // echo "Retrieving single value in $tableName: " . PHP_EOL;
 // var_dump($result);
 
@@ -73,8 +73,8 @@ $compareFieldValue = "";
 
 $tableName = "";
 $databaseName = "";
-// $conn = tableOpConnection($databaseName);
-// $result = $conn->retrieveMultipleValues("`$tableName`", $fieldName, $compareFieldName, $compareFieldValue);
+// $conn = tableOpConnection(databaseName: $databaseName);
+// $result = $conn->retrieveMultipleValues(tableName: $tableName, fieldName: $fieldName, compareFieldName: $compareFieldName, compareFieldValue: $compareFieldValue);
 // echo "Retrieving multple values from $tableName: " . PHP_EOL;
 // var_dump($result);
 
@@ -84,8 +84,8 @@ $fieldValue = "";
 
 $tableName = "";
 $databaseName = "";
-// $conn = tableOpConnection($databaseName);
-// $result = $conn->retrieveSingleRecord("`$tableName`", $fieldName, $fieldValue);
+// $conn = tableOpConnection(databaseName: $databaseName);
+// $result = $conn->retrieveSingleRecord(tableName: $tableName, fieldName: $fieldName, fieldValue: $fieldValue);
 // echo "Retrieving single record in $tableName: " . PHP_EOL;
 // var_dump($result);
 
@@ -96,8 +96,8 @@ $fieldValue = "";
 
 $tableName = "";
 $databaseName = "";
-// $conn = tableOpConnection($databaseName);
-// $result = $conn->updateRecord("`$tableName`", $record, $fieldName, $fieldValue);
+// $conn = tableOpConnection(databaseName: $databaseName);
+// $result = $conn->updateRecord(tableName: $tableName, sanitizedData: $record, fieldName: $fieldName, fieldValue: $fieldValue);
 // echo "Updating record in $tableName: ";
 // if ($result) {
 //     echo "Success\n";
@@ -111,8 +111,8 @@ $fieldValue = "";
 
 $tableName = "";
 $databaseName = "";
-// $conn = tableOpConnection($databaseName);
-// $result = $conn->deleteRecord("`$tableName`", $fieldName, $fieldValue);
+// $conn = tableOpConnection(databaseName: $databaseName);
+// $result = $conn->deleteRecord(tableName: $tableName, fieldName: $fieldName, fieldValue: $fieldValue);
 // echo "Deleting record in $tableName: ";
 // if ($result) {
 //     echo "Success\n";
@@ -124,18 +124,18 @@ $databaseName = "";
 $databaseName = "";
 $tableName = "";
 $alterStatement = "ADD COLUMN ``  NOT NULL FIRST";
-// $conn = tableConnection($databaseName);
-// $result = $conn->alterTable("`$tableName`", $alterStatement);
+// $conn = tableConnection(databaseName: $databaseName);
+// $result = $conn->alterTable(tableName: $tableName, alterStatement: $alterStatement);
 
 
 /** *******************************************Truncate Tables***************************************** */
 $databaseName = "";
 $tableName = "";
-// $conn = tableConnection($databaseName);
-// $result = $conn->truncateTable("`$tableName`");
+// $conn = tableConnection(databaseName: $databaseName);
+// $result = $conn->truncateTable(tableName: $tableName);
 
 /** *******************************************Drop Tables***************************************** */
 $databaseName = "";
 $tableName = "";
-// $conn = tableConnection($databaseName);
-// $result = $conn->dropTable("`$tableName`");
+// $conn = tableConnection(databaseName: $databaseName);
+// $result = $conn->dropTable(tableName: $tableName);
