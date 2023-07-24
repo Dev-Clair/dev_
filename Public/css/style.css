@@ -1,0 +1,9 @@
+.is-invalid {
+  font-size: 12px;
+  color: red;
+}
+
+.is-valid {
+  font-size: 12px;
+  color: green;
+}
