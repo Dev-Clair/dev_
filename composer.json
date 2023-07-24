@@ -2,7 +2,8 @@
   "autoload": {
     "psr-4": {
       "db\\Connection\\": "src/db/Connection",
-      "app\\": "src/app"
+      "app\\": "src/app",
+      "utils\\": "src/utils"
     }
   },
   "require": {

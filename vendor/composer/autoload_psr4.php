@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'utils\\' => array($baseDir . '/src/utils'),
     'db\\Connection\\' => array($baseDir . '/src/db/Connection'),
     'app\\' => array($baseDir . '/src/app'),
     'Symfony\\Polyfill\\Php80\\' => array($vendorDir . '/symfony/polyfill-php80'),
