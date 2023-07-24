@@ -7,3 +7,4 @@ require __DIR__ . '/../src/db/dbResource.php';
 
 $databaseName = "";
 $conn = tableOpConnection($databaseName);
+print_r($conn);
