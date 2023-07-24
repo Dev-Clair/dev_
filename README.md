@@ -1,6 +1,6 @@
-# Univeral Database Controller
+# Add Project Title
 
-Database: Mysqli
+Database: MariaDB Mysql
 Programming Style: OOP / PDO
 Language: PHP
 Packages: dotenv
