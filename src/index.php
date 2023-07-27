@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace db\DbResource;
+// namespace db\DbResource;
 
 use db\DbResource;
 
