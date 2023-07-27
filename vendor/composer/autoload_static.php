@@ -20,6 +20,7 @@ class ComposerStaticInitc2c340d54c0b0234484a348183a4f8f8
         'd' => 
         array (
             'db\\Connection\\' => 14,
+            'db\\' => 3,
         ),
         'a' => 
         array (
@@ -53,6 +54,10 @@ class ComposerStaticInitc2c340d54c0b0234484a348183a4f8f8
         'db\\Connection\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/db/Connection',
+        ),
+        'db\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/db',
         ),
         'app\\' => 
         array (

@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'utils\\' => array($baseDir . '/src/utils'),
     'db\\Connection\\' => array($baseDir . '/src/db/Connection'),
+    'db\\' => array($baseDir . '/src/db'),
     'app\\' => array($baseDir . '/src/app'),
     'Symfony\\Polyfill\\Php80\\' => array($vendorDir . '/symfony/polyfill-php80'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
